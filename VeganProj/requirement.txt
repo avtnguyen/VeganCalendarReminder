@@ -1,0 +1,11 @@
+# Web scraping library
+requests
+html5lib
+bs4
+
+# System file 
+os
+
+# Utils
+re
+
