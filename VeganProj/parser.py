@@ -11,7 +11,7 @@ for yr in range(2017, 2031):
     with open(file_path_import, 'r', encoding='utf-8') as file:
         web_content = file.read()
 
-    # Parse raw data into processed data with day, month, am day, am month
+    # Parse raw data into processed data with day, month, luna day, luna month
 
     soup = BeautifulSoup(web_content, 'html5lib') 
 
@@ -26,15 +26,15 @@ for yr in range(2017, 2031):
             if match :
                 month = match.group(1)
             day = month_cal[monthIdx].select('a')[day_in_month].find('div', attrs= {'class':'duong'}).text.split()[0]
-            am = month_cal[monthIdx].select('a')[day_in_month].find('div', attrs= {'class':'am'}).text
-            if '/' in am:
-                am_month = am.split('/')[1].split(' ')[0]
-                am_day = am.split('/')[0]
+            luna = month_cal[monthIdx].select('a')[day_in_month].find('div', attrs= {'class':'am'}).text
+            if '/' in luna:
+                luna_month = luna.split('/')[1].split(' ')[0]
+                luna_day = luna.split('/')[0].strip()
             else:
-                am_day = am
+                luna_day = luna.strip()
 
             #print(day, month, am_month, am_day)
-            data_i = {'day' : day, 'month' : month, 'am day' : am_day, 'am month' : am_month}
+            data_i = {'day' : day, 'month' : month, 'luna_day' : luna_day, 'luna_month' : luna_month}
             data.append(data_i)
 
     # Export processed data into the folder data/processed
