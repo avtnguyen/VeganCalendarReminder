@@ -24,9 +24,21 @@ Enable the Google Calendar API for your project.
 Generate OAuth 2.0 credentials and download the credentials.json file.
 Save the credentials.json file as "google_calendar_credential.json" in the directory 'credential' of your project.
 
-4. Run the script
-After setting up the environment and Google Calendar API, run the project using:
-```bash
+## Usage
+After installing the project and setting up the Google Calendar API, follow these steps to create reminders for vegan days:
 
-python addVeganCal.py
-```
+1. **Run the script**  
+   Execute the script to begin the process of generating vegan day reminders:
+   ```bash
+   python addVeganCal.py
+   ```
+2.Input the year
+The script will prompt you to enter the year for which you want to import the vegan calendar. Enter the desired year in Gregorian format (e.g., 2024):
+
+3. Event Creation
+The script will automatically calculate the vegan days based on the Vietnamese lunar calendar and create events on the following days:
+
+* 14th and 15th days of each lunar month
+* Last day and 1st day of each lunar month
+4. Check Google Calendar
+Once the script completes, open your Google Calendar and verify that the vegan day reminders have been added on the appropriate Gregorian calendar dates.
