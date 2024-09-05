@@ -35,7 +35,7 @@ After installing the project and setting up the Google Calendar API, follow thes
 2.Input the year
 The script will prompt you to enter the year for which you want to import the vegan calendar. Enter the desired year in Gregorian format (e.g., 2024):
 
-3. Event Creation
+3.Event Creation
 The script will automatically calculate the vegan days based on the Vietnamese lunar calendar and create events on the following days:
 
 * 14th and 15th days of each lunar month
