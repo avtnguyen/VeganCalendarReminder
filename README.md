@@ -32,13 +32,14 @@ After installing the project and setting up the Google Calendar API, follow thes
    ```bash
    python addVeganCal.py
    ```
-2.Input the year
+2. **Input the year**
 The script will prompt you to enter the year for which you want to import the vegan calendar. Enter the desired year in Gregorian format (e.g., 2024):
 
-3.Event Creation
+3. **Event Creation**
 The script will automatically calculate the vegan days based on the Vietnamese lunar calendar and create events on the following days:
 
 * 14th and 15th days of each lunar month
 * Last day and 1st day of each lunar month
-4. Check Google Calendar
+  
+4. **Check Google Calendar**
 Once the script completes, open your Google Calendar and verify that the vegan day reminders have been added on the appropriate Gregorian calendar dates.
