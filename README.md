@@ -22,7 +22,7 @@ Visit the Google Cloud Console.
 Create a new project or use an existing one.
 Enable the Google Calendar API for your project.
 Generate OAuth 2.0 credentials and download the credentials.json file.
-Save the credentials.json file in the directory 'credential' of your project.
+Save the credentials.json file as "google_calendar_credential.json" in the directory 'credential' of your project.
 
 4. Run the script
 After setting up the environment and Google Calendar API, run the project using:
