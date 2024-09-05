@@ -64,9 +64,9 @@ else:
 
 # add an all-day event in the vegan calendar
 
-def addToGoogleCalendar(event_description, date_start, date_end, 
-                        first_reminder_type, first_reminder_time, 
-                        second_reminder_type, second_reminder_time, 
+def addToGoogleCalendar(event_description: str, date_start: str, date_end: str, 
+                        first_reminder_type: str, first_reminder_time: int, 
+                        second_reminder_type: str, second_reminder_time: int, 
                         calendar_ID, service):
     event = {
         'summary': event_description,
@@ -95,22 +95,27 @@ def addToGoogleCalendar(event_description, date_start, date_end,
     }
     created_event = service.events().insert(calendarId=calendar_ID, body=event).execute()
     
-    print(f"Created event: {event_description} with id {created_event['id']}")
-    
+    print(f"Created event: {event_description} with id {created_event['id']} on {date_start}")
     
 
-data_file_path = 'data/processed/vegan_day_' + str(2024) + '.txt'
-with open(data_file_path) as data_file:
-    vegan_day = json.load(data_file)
-
-for day in vegan_day:
     
-    addToGoogleCalendar(event_description = day['summary'] + '. Lunar day: ' + day['lunar day'], 
-                date_start = day['day'] , date_end = day['day'], 
-                    first_reminder_type = 'email', first_reminder_time = 3180, 
-                    second_reminder_type = 'popup', second_reminder_time = 1740, 
-                    calendar_ID = calendar_id, service = service)
-
+if __name__ == "__main__":
     
-#if __name__ == "__main__":
-#  main()
+    inputYear = int(input('Please give the year to import the vegan calendar ranging from 2017 to 2030:'))
+    while True:
+        if inputYear >= 2017 and inputYear <= 2030:
+            break
+        else:
+            inputYear = int(input('Please give the year to import the vegan calendar ranging from 2017 to 2030:'))
+            
+    data_file_path = 'data/processed/vegan_day_' + str(inputYear) + '.txt'
+    with open(data_file_path) as data_file:
+        vegan_day = json.load(data_file)
+
+    for day in vegan_day:
+        
+        addToGoogleCalendar(event_description = day['summary'] + '. Lunar day: ' + day['lunar day'], 
+                    date_start = day['day'] , date_end = day['day'], 
+                        first_reminder_type = 'email', first_reminder_time = 3180, 
+                        second_reminder_type = 'popup', second_reminder_time = 1740, 
+                        calendar_ID = calendar_id, service = service)
