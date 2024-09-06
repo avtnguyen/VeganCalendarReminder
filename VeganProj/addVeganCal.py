@@ -68,6 +68,20 @@ def addToGoogleCalendar(event_description: str, date_start: str, date_end: str,
                         first_reminder_type: str, first_reminder_time: int, 
                         second_reminder_type: str, second_reminder_time: int, 
                         calendar_ID, service):
+    '''
+    event_description: string describe the event
+    date_start: string with format yyyy-mm-dd
+    end_start: string with format yyyy-mm-dd
+    first_reminder_type: string with options 'email' or 'popup'
+    first_reminder_time: int showing number minutes before the event
+    second_reminder_type: string with options 'email' or 'popup'
+    second_reminder-time: int showing number of minutes before the event
+    calendar_ID: id of the chosen calendar obtain from google api
+    service: service object from google api
+    '''
+    
+    
+    
     event = {
         'summary': event_description,
         
