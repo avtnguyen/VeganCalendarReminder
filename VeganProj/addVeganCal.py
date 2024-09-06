@@ -95,7 +95,7 @@ def addToGoogleCalendar(event_description: str, date_start: str, date_end: str,
     }
     created_event = service.events().insert(calendarId=calendar_ID, body=event).execute()
     
-    print(f"Created event: {event_description} with id {created_event['id']} on {date_start}")
+    print(f"Created event: {event_description} with id {created_event['id']}")
     
 
     
@@ -114,7 +114,9 @@ if __name__ == "__main__":
 
     for day in vegan_day:
         
-        addToGoogleCalendar(event_description = day['summary'] + '. Lunar day: ' + day['lunar day'], 
+        description =f"{day['summary']}. Lunar day: {day['lunar day']}. Gregorian day: {day['day']}" 
+        
+        addToGoogleCalendar(event_description = description, 
                     date_start = day['day'] , date_end = day['day'], 
                         first_reminder_type = 'email', first_reminder_time = 3180, 
                         second_reminder_type = 'popup', second_reminder_time = 1740, 
